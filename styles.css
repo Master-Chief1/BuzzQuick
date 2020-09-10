@@ -1,0 +1,65 @@
+.headbrand a
+{
+	text-decoration: none;
+	font-size: 28px;
+	margin: 5px;
+}
+
+#cat
+{
+	background-color: olive;
+	border-radius: 5px;
+	
+	padding: 7px 0;
+	text-align: center;
+}
+
+.cat_item
+{
+	list-style-type: none;
+}
+
+.sidebar
+{
+	border-radius: 5px;
+	margin: 5px;
+	height: 590px;
+}
+
+.sidebar img
+{
+	border: black;
+}
+
+.search
+{
+	background-color: #5c755e;
+	margin: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.search input[type=text]
+{
+	float: right;
+	padding:  5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-size: 10px;
+	height: 25px;
+}
+
+.main_menu
+{
+	border-radius: 5px;
+	margin: 5px;
+	margin-left: 5px;
+	height: 550px;
+}
+
+.ft
+{
+	background-color: #d3d3d3;
+	border-radius: 5px;
+	margin: 5px;
+}
