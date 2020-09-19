@@ -58,18 +58,75 @@
 		<input type="text" placeholder="Search...">
 	</div>
 	<div class = "main_menu">
-		<p align = "center"> This is the main </p>
+
+    <!-- Kushal code added -->
+    <p align = "center"> Currently we only added images we need a design to diplay our categories or bysiness or something else ehich would be dicussed shortly  </p>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="Halo.jpg" style="width:100%">
+        <div class="text">Caption Text</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="cleaning.jfif" style="width:100%">
+        <div class="text">Caption Two</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="Halo.jpg" style="width:100%">
+        <div class="text">Caption Three</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
+    
+
+
 	</div>
 	</div>
 </div>
 
-<footer>
-<div class = "footer ft">
-<p align="center">THIS IS FOOTER </p>
-</div>
-</footer>
 
 </div>
+
+
+
+<!-- JAvascript code which would be later added in js filegsgsg -->
+
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html> 
+
 
 
 </body>
