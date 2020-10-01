@@ -84,7 +84,6 @@ img {vertical-align: middle;}
           <h3><a href="#"> BuzzQuick </a></h3>
 		 </div>
 
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -103,6 +102,9 @@ img {vertical-align: middle;}
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link">{{> loginButtons}}</div>
         </li>
       </ul>
     </div>
@@ -181,7 +183,6 @@ img {vertical-align: middle;}
 
 	<div class = "col-md-9">
 	<div class = "search">
-    {{> loginButtons}}
     {{> profiles_add_form}}
 		<input type="text" placeholder="Search...">
 	</div>
