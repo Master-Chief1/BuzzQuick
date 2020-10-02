@@ -1,6 +1,8 @@
 <head>
   <title>Project</title>
 
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box;}
@@ -104,7 +106,7 @@ img {vertical-align: middle;}
           <a class="nav-link" href="#">Contact</a>
         </li>
         <li class="nav-item">
-          <div class="nav-link">{{> loginButtons align="right"}}</div>
+          <a class="nav-link">{{> loginButtons align="right"}}</a>
         </li>
       </ul>
     </div>
@@ -269,9 +271,9 @@ function showSlides() {
           <p>Name : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a>
             </p>
           <p>
-            {{>starsRating mutable=true class="js-rate-image" data_id=_id rating=rating}}
+            {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}}
             </p>
-          
+
           <button class="js-del-profiles btn btn-warning">Delete</button>
 
           </div>
