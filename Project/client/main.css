@@ -4,6 +4,8 @@
   margin-right: 30px;
 }
 
+
+
 .scroller {
   color : red;
   width: 290px;
@@ -143,10 +145,21 @@
 }
 
 .thumbnail {
-	height:500px;
+	height:425px;
 	word-wrap:break-word;
+  align: center;
+  border: black 1px solid;
+  margin: 5px;
+  padding: 10px;
 }
 
 .thumbnail-img{
-	max-height:200px;
+	max-height:180px;
+  align: center;
+  object-fit: contain;
+  max-width: 100%;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
