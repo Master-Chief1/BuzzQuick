@@ -1,7 +1,5 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
 
-import './main.html';
+
 Session.set("profilesLimit",8);
 
 lastScrollTop = 0;

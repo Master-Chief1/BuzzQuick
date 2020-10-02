@@ -7,6 +7,7 @@ autopublish@1.0.7
 autoupdate@1.6.0
 babel-compiler@7.5.3
 babel-runtime@1.5.0
+barbatus:stars-rating@1.1.1
 base64@1.0.12
 binary-heap@1.0.11
 blaze@2.3.4
