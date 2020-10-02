@@ -93,7 +93,7 @@ lastScrollTop = 0;
         img_alt = event.target.img_alt.value;
         console.log("src: "+img_src+" alt:"+img_alt);
         if (Meteor.user()){
-          Images.insert({
+          Profiles.insert({
             img_src:img_src,
             img_alt:img_alt,
             createdOn:new Date(),
