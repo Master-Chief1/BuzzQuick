@@ -45,7 +45,7 @@ lastScrollTop = 0;
         return user.username;
       }
       else {
-        return "anon";
+        return "anonymous";
       }
     }
   });
