@@ -1,7 +1,7 @@
 <head>
   <title>Project</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
@@ -158,20 +158,17 @@ img {vertical-align: middle;}
           <!-- Currently we only added only scroller but we need a design to better diplay our categories
           or bysiness or something else ehich would be dicussed shortly
           <h2>CSS Buttons</h2> -->
-            <div class = "container"><a href="#" class="but_img"><img src="/images/Hotel.png" height="150" width="255"/></a>
-
-            </div>
-
-            <a href="#" class="button1">FRONTENT DEVELOPER</a>
-            <a href="#" class="button1">FINANCIAL CONSULTSANT</a>
-            <a href="#" class="button1">MEHANDI WALI</a>
-            <a href="#" class="button1">MUSICIAN</a>
-            <a href="#" class="button1">BALLET DANCER</a>
-            <a href="#" class="button1">HOTEL MANAGEMENT</a>
-            <a href="#" class="button1">FINANCIAL CONSULTSANT</a>
-            <a href="#" class="button1">TATTOO ARTIST</a>
-            <a href="#" class="button1">MUSICIAN</a>
-            <a href="#" class="button1">BALLET DANCER</a>
+            <a href="#" class="button1">Front-End Developer</a>
+            <a href="#" class="button1">Financial Consultant</a>
+            <a href="#" class="button1">Mendhi Artist</a>
+            <a href="#" class="button1">Musician/Singer</a>
+            <a href="#" class="button1">Dancer</a>
+            <a href="#" class="button1">Hotel Management</a>
+            <a href="#" class="button1">Tiffin Service</a>
+            <a href="#" class="button1">Tattoo Artist</a>
+            <a href="#" class="button1">Wedding Planner</a>
+            <a href="#" class="button1">Parlour</a>
+            <a href="#" class="button1">Other</a>
             <!-- <button class="button">Button</button> -->
 
           </div>
@@ -225,8 +222,7 @@ function showSlides() {
 </body>
 
 <template name="profiles_add_form">
-
-<div class="modal fade" id="profiles_add_form">
+<div class="modal" id="profiles_add_form">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -240,7 +236,7 @@ function showSlides() {
             <input type="text" class="form-control" id="img_src" placeholder="url" name="img_src"/>
         </div>
         <div class="form-group">
-         <label for="img_alt">Image description:</label>
+         <label for="img_alt">Image alt description:</label>
           <textarea class="form-control" id="img_alt" placeholder="Describe the image here" name="img_alt"></textarea>
         </div>
           <button class="btn btn-success">save</button>
@@ -264,10 +260,10 @@ function showSlides() {
       <div class="thumbnail">
         <img class="js-image thumbnail-img" src="{{img_src}}" alt="{{img_alt}}">
         <div class="caption">
-          <h3>Rating : {{rating}}</h3>
+          <h3>Name : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a>
+            </h3>
+          <h4>Rating : {{rating}}</h4>
           <p>{{img_alt}}</p>
-          <p>Name : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a>
-            </p>
           <p>
             {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}}
             </p>
