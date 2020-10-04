@@ -45,7 +45,7 @@ lastScrollTop = 0;
         return user.username;
       }
       else {
-        return "anonymous";
+        return "Anonymous";
       }
     }
   });
@@ -87,15 +87,24 @@ lastScrollTop = 0;
 
    Template.profiles_add_form.events({
     'submit .js-add-profiles':function(event){
-      var img_src, img_alt;
+      var img_src, img_alt, pro_des, category, contact;
 
         img_src = event.target.img_src.value;
         img_alt = event.target.img_alt.value;
+        pro_des = event.target.pro_des.value;
+        contact = event.target.contact.value;
+
+        var e = document.getElementById("category");
+        category = e.options[e.selectedIndex].text;
+
         console.log("src: "+img_src+" alt:"+img_alt);
         if (Meteor.user()){
           Profiles.insert({
             img_src:img_src,
             img_alt:img_alt,
+            pro_des:pro_des,
+            category:category,
+            contact:contact,
             createdOn:new Date(),
             createdBy:Meteor.user()._id
           });
