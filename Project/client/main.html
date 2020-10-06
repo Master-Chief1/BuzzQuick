@@ -306,16 +306,17 @@ function showSlides() {
       <div class="thumbnail">
         <img class="js-image thumbnail-img" src="{{img_src}}" alt="{{img_alt}}">
         <div class="caption">
-          <h3><b>Name :</b>{{name}}
-          </h3>
-          <h4><b>Category : </b>{{category}}</h4>
-          <h4><b>Description :</b><br>{{pro_des}}</h4>
-          <h4><b>Contact: </b>{{contact}}</h4>
-          <h4><b>Rating :</b> {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}} </h4>
-
+          <h4 style="color: #40a8c4"><b>Name :</b>{{name}}
+          </h4><br>
+          <h4 style="color: #40a8c4"><b>Category : </b>{{category}}</h4><br>
+          <h4 style="color: #40a8c4"><b>Description :</b><br>{{pro_des}}</h4><br>
+          <h4 style="color: #40a8c4"><b>Contact: </b>{{contact}}</h4><br>
+          <h4 style="color: #40a8c4"><b>Rating :</b> {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}} </h4><br>
+          {{#if checkUser createdBy}}
           <button class="js-del-profiles btn btn-warning">Delete</button>
+          {{/if}}
           <footer class="footer_cus">
-            <h6>Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>
+            <h6 style="color: #40a8c4">Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>
           </footer>
 
           </div>

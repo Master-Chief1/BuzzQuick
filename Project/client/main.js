@@ -85,7 +85,17 @@ lastScrollTop = 0;
       }
     },
 
-
+    checkUser:function(createdBy){
+      console.log(createdBy);
+      console.log(Meteor.userId());
+      if(createdBy == Meteor.userId())
+      {
+        return true;
+      }
+      else{
+        return false;
+      }
+    },
 
     getUser:function(user_id){
       var user = Meteor.users.findOne({_id:user_id});
