@@ -2,6 +2,12 @@
 
 Session.set("profilesLimit",8);
 
+$(".button1").click(function() {
+    var fired_button = $(this).val();
+    alert(fired_button);
+});
+
+
 lastScrollTop = 0;
   $(window).scroll(function(event){
     // test if we are near the bottom of the window
@@ -19,25 +25,67 @@ lastScrollTop = 0;
 
   })
 
+  /*$("#search_profile").keyup(function(event) {
+   if(event.keyCode === 13) {
+       $("#search_profile").click();
+   }
+  });
+
+   $("#search_button_profile").click(function() {
+       alert("Button code executed.");
+       console.log("Pressed");
+     });*/
+
+
+  Template.profile_search.events({
+  'keypress #search_profile': function (evt, template) {
+    if (evt.which === 13) {
+      Session.set("catFilter", undefined);
+      var info = document.getElementById("search_profile").value;
+      Session.set("userFilter", info);
+      console.log(Session.get("userFilter"));
+    }
+  },
+  'click #search_button_profile': function(){
+    Session.set("catFilter", undefined);
+    var info = document.getElementById("search_profile").value;
+    Session.set("userFilter", info);
+    console.log(Session.get("userFilter"));
+  }
+});
+
+
   Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_EMAIL"
   });
 
-  Template.body.helpers({username:function(){
-    if (Meteor.user()){
-      return Meteor.user().username;
-        //return Meteor.user().emails[0].address;
-    }
-    else {
-      return "anonymous internet user";
-    }
+  Template.body.helpers({
+    username:function(){
+      if (Meteor.user()){
+        return Meteor.user().username;
+          //return Meteor.user().emails[0].address;
+      }
+      else {
+        return "Anonymous internet user";
+      }
   }
   });
 
   Template.profiles.helpers({
     profiles:function(){
+      if(Session.get("userFilter")){
+        console.log("In");
+        return Profiles.find({name: Session.get("userFilter")}, {sort: {createdOn: -1, rating: -1}});
+      }
+      if (Session.get("catFilter")) {
+        return Profiles.find({category: Session.get("catFilter")}, {sort: {createdOn: -1, rating: -1}});
+      }
+      else{
       return Profiles.find({}, {sort:{createdOn: -1, rating:-1}, limit:Session.get("profilesLimit")});
+      }
     },
+
+
 
     getUser:function(user_id){
       var user = Meteor.users.findOne({_id:user_id});
@@ -83,12 +131,21 @@ lastScrollTop = 0;
     'click .js-unset-image-filter':function(event){
         Session.set("userFilter", undefined);
     },
+
+    'click .unset-filter':function () {
+      if(Session.get("userFilter") || Session.get("catFilter"))
+      {
+        Session.set("userFilter", undefined);
+        Session.set("catFilter", undefined);
+      }
+    }
    });
 
    Template.profiles_add_form.events({
     'submit .js-add-profiles':function(event){
-      var img_src, img_alt, pro_des, category, contact;
+      var img_src, img_alt, pro_des, category, contact, name;
 
+        name = event.target.name.value;
         img_src = event.target.img_src.value;
         img_alt = event.target.img_alt.value;
         pro_des = event.target.pro_des.value;
@@ -106,7 +163,8 @@ lastScrollTop = 0;
             category:category,
             contact:contact,
             createdOn:new Date(),
-            createdBy:Meteor.user()._id
+            createdBy:Meteor.user()._id,
+            name:name
           });
       }
         $("#profiles_add_form").modal('hide');
