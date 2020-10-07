@@ -1,21 +1,27 @@
 
 
 .nav1{
-  margin-right: 30px;
+
   margin-bottom: 0px;
 }
 
 .nav-cus{
   margin-bottom: 0px;
   padding: 0px;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin: 5px;
 }
 .nav-cus-lst{
   padding: 0px;
 }
 
+.mySlides{
+  height: 100%;
+}
 
+.mySlides img{
+  max-height: 100%;
+  width: 100%;
+}
 
 .scroller {
   color : red;
@@ -220,6 +226,14 @@
 	max-width:100%;
 }
 
+.land{
+  background-color: powderblue;
+  max-width: 50%;
+  margin:auto;
+  margin-top: 200px;
+  text-align: center;
+}
+
 
 .unset-filter{
   float: right;
@@ -230,4 +244,34 @@
 .footer_cus{
   position: absolute;
   bottom: 20px;
+}
+
+@media (max-width:800px){
+  .land{
+    max-width: 100%;
+    margin: auto;
+    margin-top: 200px;
+  }
+  .nav1{
+    margin: 0px;
+  }
+  .nav-cus{
+    margin: 0px;
+  }
+  .headbrand a{
+    margin-left: 0px;
+  }
+  .sidebar{
+    width:85%;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  .button1{
+    display: inline-block;
+    width: 340px;
+  }
+  .slideshow-container{
+    max-height:50%;
+  }
+
 }
