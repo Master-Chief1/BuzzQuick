@@ -216,6 +216,11 @@
   display: block;*/
 }
 
+.single-img{
+	max-width:100%;
+}
+
+
 .unset-filter{
   float: right;
   line-height: 15px;

@@ -23,4 +23,4 @@ Profiles.allow({
   update:function(userId, doc){
     return true;
   }
-})
+});
