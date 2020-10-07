@@ -1,4 +1,35 @@
 
+Router.configure({
+  layoutTemplate: 'ApplicationLayout'
+});
+
+Router.route('/', function () {
+  this.render('LandingPage', {
+    to:"main"
+  });
+});
+
+Router.route('/main_part', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('main_part', {
+    to:"main"
+  });
+});
+
+Router.route('/image/:_id', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('image', {
+    to:"main",
+    data:function(){
+      return Profiles.findOne({_id:this.params._id});
+    }
+  });
+});
+
 
 Session.set("profilesLimit",8);
 

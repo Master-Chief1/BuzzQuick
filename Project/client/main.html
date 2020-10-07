@@ -15,6 +15,8 @@ img {vertical-align: middle;}
   max-width: 1370px;
   position: relative;
   margin: auto;
+  overflow:hidden;
+  height:100%;
 }
 
 /* Caption text */
@@ -79,150 +81,174 @@ img {vertical-align: middle;}
 </head>
 
 <body>
-<div class = "container-fluid">
-<nav class="navbar navbar-expand-lg static-top">
-  <div class="container-fluid nav-cus">
-		<div class = "headbrand">
-          <h3><a href="#"> BuzzQuick </a></h3>
-		 </div>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse nav1" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto nav-cus-lst">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">{{> loginButtons align="right"}}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container-fluid">
-  <p id="info"> <a href="#" style="color:white">See how we are dealing with Covid-19. Click here to know more</a></p>
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="/images/Halo.jpg" height="500" style="width:100%" />
-      <div class="text">Caption Text</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="/images/cleaning.jfif" height = "500" style="width:100%" />
-      <div class="text">Caption Two</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="/images/Frozen Omen.jpg" height = "500" style="width:100%" />
-      <div class="text">Caption Three</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    </div>
-    <br>
-
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-  </div>
-
-
-
-<div class = "container-fluid">
-<div class = "row">
-	<div class = "col-md-3">
-		<div class = "sidebar">
-			<p id = "cat"><b> CATEGORIES </b></p>
-      <div class="scroller">
-          <button class="button1" value="Front-End Developer">Front-End Developer</button>
-          <button class="button1" value="Financial Consultant">Financial Consultant</button>
-          <button class="button1"  value="Mendhi Artist">Mendhi Artist</button>
-          <button class="button1"  value="Musician/Singer">Musician/Singer</button>
-          <button class="button1" value="Dancer">Dancer</button>
-          <button class="button1" value="Hotel Management">Hotel Management</button>
-          <button class="button1"  value="Tiffin Service">Tiffin Service</button>
-          <button class="button1" value="Tattoo Artist">Tattoo Artist</button>
-          <button class="button1" value="Wedding Planner">Wedding Planner</button>
-          <button class="button1" value="Parlour">Parlour</button>
-          <button class="button1"  value="Other">Other</button>
-        </div>
-		</div>
-	</div>
-
-	<div class = "col-md-9">
-	<div class = "search">
-    {{> profiles_add_form}}
-    <a href="#" class="unset-filter" align="right">Reset Filter</a>
-    <div class="search_box">
-      {{> profile_search}}
-    </div>
-	</div>
-	<div class = "main_menu">
-    <div class="container-fluid js-container">
-      {{> profiles}}
-      </div>
-	</div>
-	</div>
-</div>
-
-
-</div>
-</div>
-
 
 <!-- JAvascript code which would be later added in js filegsgsg -->
-<script>
-var slideIndex = 0;
-
-showSlides();
-
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 10000); // Change image every 2 seconds
-
-  $(".button1").click(function() {
-      var fired_button = $(this).val();
-      //Session.set("userFilter", undefined);
-      Session.set("catFilter", fired_button);
-  });
-
-}
-</script>
-
 </body>
+
+
+<template name="ApplicationLayout">
+  {{> yield "navbar"}}
+  {{> yield "main"}}
+</template>
+
+<template name="image">
+  <div class="container">
+  <h2>{{img_alt}}</h2>
+  <a href="/main_part"><img class="single-img" src="{{img_src}}"/></a>
+</div>
+  </template>
+
+<template name="LandingPage">
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <h1>Welcome</h1>
+      <a href="/main_part" class="btn btn-info">ENTER</a>
+    </div>
+  </div>
+</template>
+
+<template name="navbar">
+
+  <div class = "container-fluid">
+  <nav class="navbar navbar-expand-lg static-top">
+    <div class="container-fluid nav-cus">
+  		<div class = "headbrand">
+            <h3><a href="#"> BuzzQuick </a></h3>
+  		 </div>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse nav1" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto nav-cus-lst">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">{{> loginButtons align="right"}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+</template>
+
+<template name="main_part">
+  <div class="container-fluid">
+    <p id="info"> <a href="#" style="color:white">See how we are dealing with Covid-19. Click here to know more</a></p>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="/images/Halo.jpg" height="500" style="width:100%" />
+        <div class="text">Caption Text</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="/images/cleaning.jfif" height = "500" style="width:100%" />
+        <div class="text">Caption Two</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="/images/Frozen Omen.jpg" height = "500" style="width:100%" />
+        <div class="text">Caption Three</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+
+  <div class = "container-fluid">
+  <div class = "row">
+  	<div class = "col-md-3">
+  		<div class = "sidebar">
+  			<p id = "cat"><b> CATEGORIES </b></p>
+        <div class="scroller">
+            <button class="button1" value="Front-End Developer">Front-End Developer</button>
+            <button class="button1" value="Financial Consultant">Financial Consultant</button>
+            <button class="button1"  value="Mendhi Artist">Mendhi Artist</button>
+            <button class="button1"  value="Musician/Singer">Musician/Singer</button>
+            <button class="button1" value="Dancer">Dancer</button>
+            <button class="button1" value="Hotel Management">Hotel Management</button>
+            <button class="button1"  value="Tiffin Service">Tiffin Service</button>
+            <button class="button1" value="Tattoo Artist">Tattoo Artist</button>
+            <button class="button1" value="Wedding Planner">Wedding Planner</button>
+            <button class="button1" value="Parlour">Parlour</button>
+            <button class="button1"  value="Other">Other</button>
+          </div>
+  		</div>
+  	</div>
+
+  	<div class = "col-md-9">
+  	<div class = "search">
+      {{> profiles_add_form}}
+      <a href="#" class="unset-filter" align="right">Reset Filter</a>
+      <div class="search_box">
+        {{> profile_search}}
+      </div>
+  	</div>
+  	<div class = "main_menu">
+      <div class="container-fluid js-container">
+        {{> profiles}}
+        </div>
+  	</div>
+  	</div>
+  </div>
+  </div>
+  <script type="text/javascript">
+    var slideIndex = 0;
+
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 10000); // Change image every 2 seconds
+
+      $(".button1").click(function() {
+          var fired_button = $(this).val();
+          //Session.set("userFilter", undefined);
+          Session.set("catFilter", fired_button);
+      });
+
+    };
+  </script>
+</template>
 
 <template name="profile_search">
   <div class="form-group">
@@ -304,7 +330,7 @@ function showSlides() {
     {{#each profiles}}
     <div class="col-xs-12 col-md-3" id="{{_id}}">
       <div class="thumbnail">
-        <img class="js-image thumbnail-img" src="{{img_src}}" alt="{{img_alt}}">
+        <a href="/image/{{_id}}"><img class="js-image thumbnail-img" src="{{img_src}}" alt="{{img_alt}}"></a>
         <div class="caption">
           <h4 style="color: #40a8c4"><b>Name :</b>{{name}}
           </h4><br>
