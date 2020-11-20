@@ -8,7 +8,10 @@
 .nav-cus{
   margin-bottom: 0px;
   padding: 0px;
-  margin: 5px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 1500px;
 }
 .nav-cus-lst{
   padding: 0px;
@@ -32,8 +35,29 @@
   scrollbar-width: thin;
 }
 
+.add_pro{
+  margin: 5px;
+}
+
+.add_btn{
+  margin:0 auto;
+  display:block;
+  background-color: powderblue;
+  color: black;
+}
+
+.accounts-dialog * {
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+    color: inherit;
+    font: inherit;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+  }
+
 .button1 {
-  width: 260px;
+  width: 290px;
   color: black;
   border: none;
   background-color: #eeeeee;
@@ -66,7 +90,7 @@
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 1370px;
+  max-width: 1500px;
   position: relative;
 
 }
@@ -122,6 +146,7 @@
   float: left;
   width: 80%;
   background: #f1f1f1;
+
 }
 
 .search_box

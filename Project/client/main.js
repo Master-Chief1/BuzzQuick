@@ -1,4 +1,5 @@
 
+
 Router.configure({
   layoutTemplate: 'ApplicationLayout'
 });
@@ -23,6 +24,18 @@ Router.route('/image/:_id', function () {
     to:"navbar"
   });
   this.render('image', {
+    to:"main",
+    data:function(){
+      return Profiles.findOne({_id:this.params._id});
+    }
+  });
+});
+
+Router.route('/Edit-Profiles/:_id', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('Edit-Profiles', {
     to:"main",
     data:function(){
       return Profiles.findOne({_id:this.params._id});
@@ -154,6 +167,9 @@ lastScrollTop = 0;
         Profiles.remove({"_id":pro_id});
        })
     },
+
+
+
     'click .js-rate-profiles':function(event){
       var rating = $(event.currentTarget).data("userrating");
       //console.log(rating);
@@ -166,6 +182,7 @@ lastScrollTop = 0;
     'click .js-show-profiles-form':function(event){
       $("#profiles_add_form").modal('show');
     },
+
     'click .js-set-image-filter':function(event){
         Session.set("userFilter", this.createdBy);
     },
@@ -210,5 +227,12 @@ lastScrollTop = 0;
       }
         $("#profiles_add_form").modal('hide');
      return false;
+    }
+  });
+
+  Templates.Edit-Profiles.helpers({
+    click_id:function(){
+      var id = this.data_id;
+      return id;
     }
   });
