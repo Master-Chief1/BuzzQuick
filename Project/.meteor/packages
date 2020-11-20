@@ -27,9 +27,11 @@ reload@1.1.11
 random@1.0.10
 ejson@1.0.13
 check@1.2.4
-jquery
-accounts-ui
 barbatus:stars-rating
 peppelg:bootstrap-3-modal
-twbs:bootstrap
 iron:router
+jquery
+twbs:bootstrap
+accounts-ui
+accounts-google
+google-config-ui

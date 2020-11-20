@@ -12,7 +12,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1370px;
+  max-width: 1500px;
   position: relative;
   margin: auto;
   overflow:hidden;
@@ -82,7 +82,6 @@ img {vertical-align: middle;}
 
 <body>
 
-<!-- JAvascript code which would be later added in js filegsgsg -->
 </body>
 
 
@@ -108,27 +107,31 @@ img {vertical-align: middle;}
   </div>
 </template>
 
-<template name="navbar">
+<template name="Edit-Profiles">
+  <h1> EDIT {{_id}}</h1>
+</template>
 
-  <div class = "container-fluid">
-  <nav class="navbar navbar-expand-lg static-top">
-    <div class="container-fluid nav-cus">
+<template name="navbar">
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg static-top nav-cus" style="background-color: #eeeeee">
+    <div class="container-fluid">
   		<div class = "headbrand">
-            <h3><a href="#"> BuzzQuick </a></h3>
+            <h3><a class="navbar-header"  href="#"> BuzzQuick </a></h3>
   		 </div>
 
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">H</span>
+            <span class="navbar-toggler-icon"></span>
           </button>
       <div class="collapse navbar-collapse nav1" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto nav-cus-lst">
-          <li class="nav-item">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
             <a class="nav-link" href="#">Home
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#"><span>About</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
@@ -208,11 +211,11 @@ img {vertical-align: middle;}
   	<div class = "col-md-9">
   	<div class = "search">
       {{> profiles_add_form}}
-      <a href="#" class="unset-filter" align="right">Reset Filter</a>
       <div class="search_box">
         {{> profile_search}}
+        </div>
       </div>
-  	</div>
+
   	<div class = "main_menu">
       <div class="container-fluid js-container">
         {{> profiles}}
@@ -260,6 +263,7 @@ img {vertical-align: middle;}
 </template>
 
 <template name="profiles_add_form">
+
 <div class="modal" id="profiles_add_form">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -324,10 +328,15 @@ img {vertical-align: middle;}
   </div>
 </template>
 
+
 <template name="profiles">
+
+  <div class= add_pro>
   {{#if currentUser}}
-    <button class="btn btn-success js-show-profiles-form">Add Profile</button>
+    <button class="btn btn-success js-show-profiles-form add_btn">Add Profile</button>
   {{/if}}
+</div>
+
   <div class="row">
     {{#each profiles}}
     <div class="col-xs-12 col-md-3" id="{{_id}}">
@@ -342,6 +351,7 @@ img {vertical-align: middle;}
           <h4 style="color: #40a8c4"><b>Rating :</b> {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}} </h4><br>
           {{#if checkUser createdBy}}
           <button class="js-del-profiles btn btn-warning">Delete</button>
+          <a href="/Edit-Profiles/{{_id}}"><button class="btn btn-info js-edit-profiles">Edit</button></a>
           {{/if}}
           <footer class="footer_cus">
             <h6 style="color: #40a8c4">Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>
