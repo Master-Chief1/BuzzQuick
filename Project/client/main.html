@@ -107,8 +107,60 @@ img {vertical-align: middle;}
   </div>
 </template>
 
-<template name="Edit-Profiles">
-  <h1> EDIT {{_id}}</h1>
+<template name="Edit_Profiles">
+  <div class="container-fluid">
+    <h1 id="edit_head"> Welcome <b>{{user_name _id}}</b>. Edit your Profile Below</h1>
+    <div class="Edit-box">
+      <form class="js-edit-profiles">
+
+        <div class="form-group1">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="url" name="name"/>
+      </div>
+      <br>
+        <div class="form-group1">
+          <label for="img_src">Image URL:</label><br>
+          <input type="text" class="form-control" id="img_src" placeholder="url" name="img_src"/>
+
+      </div>
+      <div class="form-group1">
+       <label for="img_alt">Image alt description:</label>
+        <textarea class="form-control" id="img_alt" placeholder="Describe the image here" name="img_alt"></textarea>
+      </div>
+
+      <div class="form-group1">
+      <label for="pro_des">Description:</label>
+        <textarea class="form-control" id="pro_des" placeholder="Write description here.." name="pro_des"></textarea>
+      </div>
+
+      <div class="form-group1">
+        <label for="category">Category:</label>
+        <select class="form-control form-control-md" id="category">
+          <option value="">Front-End Developer</option>
+          <option>Financial Consultant</option>
+          <option>Mendhi Artist</option>
+          <option>Musician/Singer</option>
+          <option>Dancer</option>
+          <option>Hotel Management</option>
+          <option>Tiffin Service</option>
+          <option>Tattoo Artist</option>
+          <option>Wedding Planner</option>
+          <option>Parlour</option>
+          <option>Other</option>
+          </select>
+          </div>
+
+          <div class="form-group1">
+            <label for="contact">Contact details</label>
+            <input type="tel" class="form-control" id="contact" name="contact" placeholder="Format:888-888-8888" pattern="[7-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+          </div>
+        <button class="btn btn-success edit-save-btn">Save</button>
+        <a href="/main_part"><button class="btn btn-dark edit-save-btn">Back</button></a>
+      </form>
+    </div>
+  </div>
+  <!--<h1> EDIT {{_id}}</h1> -->
 </template>
 
 <template name="navbar">
@@ -351,7 +403,7 @@ img {vertical-align: middle;}
           <h4 style="color: #40a8c4"><b>Rating :</b> {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}} </h4><br>
           {{#if checkUser createdBy}}
           <button class="js-del-profiles btn btn-warning">Delete</button>
-          <a href="/Edit-Profiles/{{_id}}"><button class="btn btn-info js-edit-profiles">Edit</button></a>
+          <a href="/Edit_Profiles/{{_id}}"><button class="btn btn-info js-edit-profiles">Edit</button></a>
           {{/if}}
           <footer class="footer_cus">
             <h6 style="color: #40a8c4">Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>

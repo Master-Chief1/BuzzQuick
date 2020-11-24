@@ -31,11 +31,11 @@ Router.route('/image/:_id', function () {
   });
 });
 
-Router.route('/Edit-Profiles/:_id', function () {
+Router.route('/Edit_Profiles/:_id', function () {
   this.render('navbar', {
     to:"navbar"
   });
-  this.render('Edit-Profiles', {
+  this.render('Edit_Profiles', {
     to:"main",
     data:function(){
       return Profiles.findOne({_id:this.params._id});
@@ -152,6 +152,13 @@ lastScrollTop = 0;
     }
   });
 
+  Template.Edit_Profiles.helpers({
+    user_name:function(_id){
+      var user_n = Profiles.findOne({_id:_id}).name;
+      return user_n;
+    }
+  });
+
 
    Template.profiles.events({
     'click .js-profiles':function(event){
@@ -230,9 +237,28 @@ lastScrollTop = 0;
     }
   });
 
-  Templates.Edit-Profiles.helpers({
-    click_id:function(){
-      var id = this.data_id;
-      return id;
-    }
-  });
+
+  Template.Edit_Profiles.events({
+   'submit .js-edit-profiles':function(event){
+     var img_src, img_alt, pro_des, category, contact, name;
+
+       name = event.target.name.value;
+       img_src = event.target.img_src.value;
+       img_alt = event.target.img_alt.value;
+       pro_des = event.target.pro_des.value;
+       contact = event.target.contact.value;
+       console.log(Profiles.findOne({_id:this._id}));
+
+       var e = document.getElementById("category");
+       category = e.options[e.selectedIndex].text;
+
+       pro_id = this._id;
+
+       Profiles.update({_id:pro_id},
+                     {$set: {name:name, img_src:img_src,
+                     img_alt:img_alt,
+                     pro_des:pro_des,
+                     category:category,
+                     contact:contact}});
+     }
+ });
