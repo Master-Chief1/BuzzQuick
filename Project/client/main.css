@@ -73,6 +73,34 @@
 
 }
 
+.Edit-box{
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+#edit_head{
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.form-group1{
+  font-size: 25px;
+}
+.form-control{
+  font-size: 15px;
+}
+
+.edit-save-btn{
+  margin-top: 20px;
+  font-size: 15px;
+}
+
 .headbrand a
 {
 	text-decoration: none;
