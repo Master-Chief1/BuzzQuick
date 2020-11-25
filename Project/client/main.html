@@ -107,6 +107,22 @@ img {vertical-align: middle;}
   </div>
 </template>
 
+<template name="Covid_Measures">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 Body_check"><p>We here at BuzzQuick make sure that all the people who are registered here are covid negative.<br>
+        1. The person's body temperature is sent to our staff for inspection.<br>
+        2. Our staff inspects the temperature and make sure that it's not fake.<br>
+        3. After quality check, the details are forwarded to you.</p>
+    </div>
+    <div class="col-xs-12 col-md-3 Body_check_img"><img src="/images/Body_Check_Covid.jpg">
+      </div>
+  </div>
+  </div>
+
+</template>
+
 <template name="Edit_Profiles">
   <div class="container-fluid">
     <h1 id="edit_head"> Welcome <b>{{user_name _id}}</b>. Edit your Profile Below</h1>
@@ -177,22 +193,20 @@ img {vertical-align: middle;}
           </button>
       <div class="collapse navbar-collapse nav1" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-                  <span class="sr-only">(current)</span>
-                </a>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span style="font-size: 15px"><b>Home</b></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><span>About</span></a>
+            <a class="nav-link" href="#"><span style="font-size:12px">About</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#"><span style="font-size:12px">Services</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#"><span style="font-size:12px">Contact</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">{{> loginButtons align="right"}}</a>
+            <a class="nav-link"><span style="font-size:12px">{{> loginButtons align="right"}}</span></a>
           </li>
         </ul>
       </div>
@@ -205,7 +219,7 @@ img {vertical-align: middle;}
 <template name="main_part">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <div class="container-fluid">
-    <p id="info"> <a href="#" style="color:white">See how we are dealing with Covid-19. Click here to know more</a></p>
+    <p id="info"> <a href="/Covid_Measures" style="color:white">See how we are dealing with Covid-19. Click here to know more</a></p>
     <div class="slideshow-container">
 
       <div class="mySlides fade">

@@ -43,6 +43,15 @@ Router.route('/Edit_Profiles/:_id', function () {
   });
 });
 
+Router.route('/Covid_Measures', function(){
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('Covid_Measures', {
+    to:"main"
+  });
+});
+
 
 Session.set("profilesLimit",8);
 
