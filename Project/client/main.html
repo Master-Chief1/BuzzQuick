@@ -107,19 +107,44 @@ img {vertical-align: middle;}
   </div>
 </template>
 
+<template name="Profile_view">
+  <div class="container-fluid">
+    <div class="view">
+      <a href="/image/{{_id}}"><img src="{{view_img _id}}"></a>
+      <p><b>Name</b>        : {{view_name _id}}<br><br>
+         <b>Category</b>    : {{view_cat _id}}<br><br>
+         <b>Description</b> : {{view_desc _id}}<br><br>
+         <b>Contact  </b>   : {{view_contact _id}}<br><br>
+         <b>Created On </b> : {{view_create _id}}
+        </p>
+    </div>
+  </div>
+</template>
+
 <template name="Covid_Measures">
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-md-8 Body_check"><p>We here at BuzzQuick make sure that all the people who are registered here are covid negative.<br>
+      <div class="col-md-12 Body_check">
+        <img src="/images/Body_Check_Covid.jpg">
+        <p>We here at BuzzQuick make sure that all the people who are registered here are covid negative.<br>
         1. The person's body temperature is sent to our staff for inspection.<br>
         2. Our staff inspects the temperature and make sure that it's not fake.<br>
         3. After quality check, the details are forwarded to you.</p>
     </div>
-    <div class="col-xs-12 col-md-3 Body_check_img"><img src="/images/Body_Check_Covid.jpg">
+    <div class="col-md-12 Body_check">
+      <img src="/images/Sanitization_Covid.jpg">
+      <p>We make sure that the people that will be hired will be carrying with them :<br>
+        1. Sanitizers<br>
+        2. Face Masks<br>
+        3. Face Shields</p>
+      </div>
+    <div class="col-md-12 Body_check">
+      <img src="images/Covid_test.jpg">
+      <p>If under some important reasons, the customer wants the covid test of the person,<br>
+        We provide them with that as soon as possible.</p>
       </div>
   </div>
-  </div>
+
 
 </template>
 
@@ -199,9 +224,7 @@ img {vertical-align: middle;}
           <li class="nav-item">
             <a class="nav-link" href="#"><span style="font-size:12px">About</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size:12px">Services</span></a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="#"><span style="font-size:12px">Contact</span></a>
           </li>
@@ -412,15 +435,16 @@ img {vertical-align: middle;}
           <h4 style="color: #40a8c4"><b>Name :</b>{{name}}
           </h4><br>
           <h4 style="color: #40a8c4"><b>Category : </b>{{category}}</h4><br>
-          <h4 style="color: #40a8c4"><b>Description :</b><br>{{pro_des}}</h4><br>
-          <h4 style="color: #40a8c4"><b>Contact: </b>{{contact}}</h4><br>
+
           <h4 style="color: #40a8c4"><b>Rating :</b> {{>starsRating mutable=true class="js-rate-profiles" data_id=_id rating=rating}} </h4><br>
-          {{#if checkUser createdBy}}
-          <button class="js-del-profiles btn btn-warning">Delete</button>
-          <a href="/Edit_Profiles/{{_id}}"><button class="btn btn-info js-edit-profiles">Edit</button></a>
-          {{/if}}
+
           <footer class="footer_cus">
-            <h6 style="color: #40a8c4">Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>
+            {{#if checkUser createdBy}}
+            <button class="js-del-profiles btn btn-danger">Delete</button>
+            <a href="/Edit_Profiles/{{_id}}"><button class="btn btn-primary js-edit-profiles">Edit</button></a>
+            {{/if}}
+            <a href="/Profile_view/{{_id}}"><button class="btn btn-info js-view-profiles">View</button></a>
+            <h6 style="color: #40a8c4; margin-top:5px">Created By : <a href="#" class="js-set-profiles-filter">{{getUser createdBy}}</a></h6>
           </footer>
 
           </div>

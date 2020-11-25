@@ -43,6 +43,18 @@ Router.route('/Edit_Profiles/:_id', function () {
   });
 });
 
+Router.route('/Profile_view/:_id', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('Profile_view', {
+    to:"main",
+    data:function(){
+      return Profiles.findOne({_id:this.params._id});
+    }
+  });
+});
+
 Router.route('/Covid_Measures', function(){
   this.render('navbar', {
     to:"navbar"
@@ -165,6 +177,33 @@ lastScrollTop = 0;
     user_name:function(_id){
       var user_n = Profiles.findOne({_id:_id}).name;
       return user_n;
+    }
+  });
+
+  Template.Profile_view.helpers({
+    view_img:function(_id){
+      console.log(Profiles.findOne({_id:_id}).img_src);
+      return Profiles.findOne({_id:_id}).img_src;
+    },
+    view_name:function(_id){
+      console.log(Profiles.findOne({_id:_id}).name);
+      return Profiles.findOne({_id:_id}).name;
+    },
+    view_cat:function(_id){
+      console.log(Profiles.findOne({_id:_id}).category);
+      return Profiles.findOne({_id:_id}).category;
+    },
+    view_desc:function(_id){
+      console.log(Profiles.findOne({_id:_id}).pro_des);
+      return Profiles.findOne({_id:_id}).pro_des;
+    },
+    view_contact:function(_id){
+      console.log(Profiles.findOne({_id:_id}).contact);
+      return Profiles.findOne({_id:_id}).contact;
+    },
+    view_create:function(_id){
+      console.log(Profiles.findOne({_id:_id}).createdOn);
+      return Profiles.findOne({_id:_id}).createdOn;
     }
   });
 
