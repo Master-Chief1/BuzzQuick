@@ -19,6 +19,24 @@ Router.route('/main_part', function () {
   });
 });
 
+Router.route('/about_us', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('about_us', {
+    to:"main"
+  });
+});
+
+Router.route('/Contact', function () {
+  this.render('navbar', {
+    to:"navbar"
+  });
+  this.render('Contact', {
+    to:"main"
+  });
+});
+
 Router.route('/image/:_id', function () {
   this.render('navbar', {
     to:"navbar"

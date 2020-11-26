@@ -1,5 +1,5 @@
 
-
+/*  --  NavBar --*/
 .nav1{
 
   margin-bottom: 0px;
@@ -17,7 +17,119 @@
   transition-duration: 0.4s;
   font-family: Segoe UI Light;
 }
+/* -- End Of Navbar --
+// -- About Us --*/
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
+/*.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}*/
+
+.btn-enter{
+  width: 90px;
+  height: 50px;
+  text-align: center;
+  line-height: 45px;
+  margin-top: 10px;
+  font-size: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.Contact{
+  max-width: 50%;
+  margin: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.Contact h1{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.Contact p{
+  font-size: 15px;
+  font-family: Verdana;
+  margin: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  padding: 5px;
+  font-family: Verdana;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.card img{
+  max-height: 350px;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #eeeeee;
+  color: white;
+  max-width: 1500px;
+  margin:auto;
+  color: black;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.about-section p{
+  font-size: 15px;
+  font-family: Verdana;
+}
+
+.col_card{
+  max-width: 1500px;
+  margin: auto;
+}
+
+/*.container {
+  padding: 0 16px;
+}*/
+
+
+
+.title {
+  color: grey;
+}
+
+.button2{
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button2:hover {
+  background-color: #555;
+}
+
+/*@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}*/
+/* -- End Of About Us --*/
 .Body_check{
   font-size: 20px;
   margin-top: 50px;
@@ -364,11 +476,21 @@ a {
 }
 
 .land{
-  background-color: powderblue;
-  max-width: 50%;
-  margin:auto;
-  margin-top: 200px;
+  background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
   text-align: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin:0px;
+  padding: 5px;
+}
+
+.land p{
+  border: 2px black solid;
+  max-width: 50%;
+  margin: auto;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 10px;
 }
 
 
