@@ -98,13 +98,94 @@ img {vertical-align: middle;}
   </template>
 
 <template name="LandingPage">
-  <div class="container-fluid land-bg">
+
+  <div class="container-fluid">
     <div class="jumbotron land">
       <h1>Welcome to</h1><br>
-      <h1>BuzzQuick</h1><br>
-      <a href="/main_part" class="btn btn-info">ENTER</a>
+      <h1>BuzzQuick</h1><br><br>
+      <p>BuzzQuick connects people of various professions to the rest of the world.<br>
+        It allows such people to gain recognition and achive their dreams.<br>
+        So what are you waiting for? Go ahead and ENTER !</p>
+      <a href="/main_part" class="btn btn-info btn-enter">ENTER</a>
     </div>
   </div>
+
+</template>
+
+<template name="Contact">
+
+  <div class="container-fluid">
+    <div class="Contact">
+      <h1 align="center"><b>CONTACT US</b></h1>
+      <p align="center"> We are here to resolve each and every query of yours. Feel free to contact us and ask any doubts that you have.</p><br><br>
+      <pre><p>Working days  : Mon - fri</p><br>
+      <p>Working hours : 8:00 am - 8:00pm</p><br>
+      <p>Email              : supportdesk@BuzzQuick.com</p>
+      <p>Toll free No.     : 022 786 765 8765</p></pre>
+    </div>
+  </div>
+
+</template>
+
+<template name="about_us">
+<div class="container-fluid">
+  <div class="about-section">
+  <h1>About Us</h1>
+  <p>We believe that no profession/business is small or big. There are many small scale professions/business out there that are not recognised<br>
+  So we came up with an idea to show them to the rest of the world and gain recognition. Those people can create a new profile on our website<br>
+  and let the rest of the world see it. That too all for free !</p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+
+<div class="row col_card">
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/images/Abhishek.jpeg" alt="ABHISHEK" style="width:100%">
+      <div class="container">
+        <h2>ABHISHEK MAHAKAL</h2>
+        <p class="title">FOUNDER</p>
+        <p>Website Backend Expert</p>
+        <footer class="foot">
+          <pre>Email   : abhishekmahakal2@gmail.com<br>
+Contact : +91 8779772981</pre>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/images/Kushal.PNG" alt="KUSHAL" style="width:100%">
+      <div class="container">
+        <h2>KUSHAL KOTHARI</h2>
+        <p class="title">FOUNDER</p>
+        <p>Creativity Expert & Conviencing Powers </p>
+        <footer class="foot">
+          <pre>Email   : Kushalkothari@gmail.com<br>
+Contact : +91 9757318190</pre>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <img src="/images/Gauri.jpeg" alt="GAURI" style="width:100%">
+      <div class="container">
+        <h2>GAURI MORYE</h2>
+        <p class="title">FOUNDER</p>
+        <p>Frontend and designing Expert</p>
+        <footer class="foot">
+          <pre>Email   : gaurimorye1234@gmail.com<br>
+Contact : +91 7045248654</pre>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 </template>
 
 <template name="Profile_view">
@@ -156,7 +237,7 @@ img {vertical-align: middle;}
 
         <div class="form-group1">
           <label for="name">Name:</label>
-          <input type="text" class="form-control" id="name" placeholder="url" name="name"/>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" name="name"/>
       </div>
       <br>
         <div class="form-group1">
@@ -166,7 +247,7 @@ img {vertical-align: middle;}
       </div>
       <div class="form-group1">
        <label for="img_alt">Image alt description:</label>
-        <textarea class="form-control" id="img_alt" placeholder="Describe the image here" name="img_alt"></textarea>
+        <textarea class="form-control" id="img_alt" placeholder="Describe the image here .." name="img_alt"></textarea>
       </div>
 
       <div class="form-group1">
@@ -209,24 +290,24 @@ img {vertical-align: middle;}
   <nav class="navbar navbar-expand-lg static-top nav-cus" style="background-color: #eeeeee">
     <div class="container-fluid">
   		<div class = "headbrand">
-            <h3><a class="navbar-header"  href="#"> BuzzQuick </a></h3>
+            <h3><a class="navbar-header"  href="/main_part"> BuzzQuick </a></h3>
   		 </div>
 
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon glyphicon glyphicon-align-justify"></span>
           </button>
       <div class="collapse navbar-collapse nav1" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size: 15px"><b>Home</b></span></a>
+            <a class="nav-link" href="/main_part"><span style="font-size: 15px"><b>Home</b></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size:12px">About</span></a>
+            <a class="nav-link" href="/about_us"><span style="font-size:12px">About</span></a>
           </li>
-          
+
           <li class="nav-item">
-            <a class="nav-link" href="#"><span style="font-size:12px">Contact</span></a>
+            <a class="nav-link" href="/Contact"><span style="font-size:12px">Contact</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link"><span style="font-size:12px">{{> loginButtons align="right"}}</span></a>
@@ -247,20 +328,20 @@ img {vertical-align: middle;}
 
       <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
-        <img src="/images/Halo.jpg"/>
-        <div class="text">Caption Text</div>
+        <img src="/images/Wed.jpg"/>
+        <div class="text">Wedding Planner</div>
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
-        <img src="/images/cleaning.jfif"/>
-        <div class="text">Caption Two</div>
+        <img src="/images/Chef.jpeg"/>
+        <div class="text">Chef</div>
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
-        <img src="/images/Frozen Omen.jpg" />
-        <div class="text">Caption Three</div>
+        <img src="/images/Tiffen.png" />
+        <div class="text">Tiffen Service</div>
       </div>
 
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -342,6 +423,9 @@ img {vertical-align: middle;}
 
     };
   </script>
+
+  
+
 </template>
 
 <template name="profile_search">
@@ -366,14 +450,14 @@ img {vertical-align: middle;}
 
           <div class="form-group">
             <label for="name">Name:</label><br>
-            <input type="text" class="form-control" id="name" placeholder="url" name="name"/>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name .." name="name"/><br>
         </div>
         <br>
           <div class="form-group">
-            <label for="img_src">Image URL:</label><br>
+            <label for="img_src" align="left">Image URL:</label><br>
             <input type="text" class="form-control" id="img_src" placeholder="url" name="img_src"/>
 
-        </div>
+        </div><br>
         <div class="form-group">
          <label for="img_alt">Image alt description:</label>
           <textarea class="form-control" id="img_alt" placeholder="Describe the image here" name="img_alt"></textarea>
