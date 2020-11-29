@@ -115,13 +115,13 @@ img {vertical-align: middle;}
 <template name="Contact">
 
   <div class="container-fluid">
-    <div class="Contact">
+    <div class="col-md-6 Contact">
       <h1 align="center"><b>CONTACT US</b></h1>
       <p align="center"> We are here to resolve each and every query of yours. Feel free to contact us and ask any doubts that you have.</p><br><br>
-      <pre><p>Working days  : Mon - fri</p><br>
+      <p>Working days  : Mon - fri</p><br>
       <p>Working hours : 8:00 am - 8:00pm</p><br>
-      <p>Email              : supportdesk@BuzzQuick.com</p>
-      <p>Toll free No.     : 022 786 765 8765</p></pre>
+      <p>Email              : supportdesk@BuzzQuick.com</p><br>
+      <p>Toll free No.     : 022 786 765 8765</p>
     </div>
   </div>
 
@@ -294,9 +294,17 @@ Contact : +91 7045248654</pre>
   		 </div>
 
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon glyphicon glyphicon-align-justify"></span>
-          </button>
+       <div id="mySidebar" class="sidebar1">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <a href="/main_part">Home</a>
+   <a href="/about_us">About</a>
+   <a href="/Contact">Contact</a>
+   <a>{{> loginButtons align="left"}}</a>
+ </div>
+
+ <div id="main">
+   <button class="openbtn" onclick="openNav()" id="#myDiv">&#9776;</button>
+ </div>
       <div class="collapse navbar-collapse nav1" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -395,6 +403,25 @@ Contact : +91 7045248654</pre>
   </div>
   </div>
   <script type="text/javascript">
+
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+
     var slideIndex = 0;
 
     showSlides();
@@ -424,7 +451,7 @@ Contact : +91 7045248654</pre>
     };
   </script>
 
-  
+
 
 </template>
 
