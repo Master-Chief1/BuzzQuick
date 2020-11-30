@@ -45,6 +45,7 @@
   color: white;
   padding: 10px 15px;
   border: none;
+  display: none;
 }
 
 .openbtn:hover {
@@ -107,11 +108,15 @@
 }
 
 .Contact{
-  max-width: 50%;
-  margin: auto;
+  padding: 50px;
+  text-align: center;
   background-color: #eeeeee;
-  border-radius: 10px;
+  color: white;
+  max-width: 1500px;
+  margin:auto;
+  color: black;
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .Contact h1{
@@ -599,6 +604,9 @@ a {
 
   .Contact{
     max-width: 80%;
+  }
+  .openbtn{
+    display: block;
   }
 }
 
