@@ -198,6 +198,8 @@ lastScrollTop = 0;
     }
   });
 
+
+
   Template.Profile_view.helpers({
     view_img:function(_id){
       console.log(Profiles.findOne({_id:_id}).img_src);
@@ -271,6 +273,7 @@ lastScrollTop = 0;
       }
     }
    });
+
 
    Template.profiles_add_form.events({
     'submit .js-add-profiles':function(event){
