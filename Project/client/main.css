@@ -48,6 +48,8 @@
   display: none;
 }
 
+
+
 .openbtn:hover {
   background-color: #444;
 }
@@ -64,11 +66,16 @@
   .sidebar a {font-size: 18px;}
 }
 
-
+.nav-cus{
+    margin-bottom: 50px
+}
 /*  --  NavBar --*/
 .nav1{
-
   margin-bottom: 0px;
+}
+
+.sigin a:hover{
+  color: #40a8c4;
 }
 
 
@@ -606,6 +613,9 @@ a {
     max-width: 80%;
   }
   .openbtn{
+    display: block;
+  }
+  #mySidebar .nav-link{
     display: block;
   }
 }

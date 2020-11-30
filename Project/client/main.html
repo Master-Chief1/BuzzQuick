@@ -287,8 +287,11 @@ Contact : +91 7045248654</pre>
 
 <template name="navbar">
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg static-top nav-cus" style="background-color: #eeeeee">
+  <nav class="navbar navbar-expand-lg static-top nav-cus" style="background-color: #eeeeee; margin-bottom: 25px;">
     <div class="container-fluid">
+      <div id="main">
+        <button class="openbtn" onclick="openNav()" id="#myDiv">&#9776;</button>
+      </div>
   		<div class = "headbrand">
             <h3><a class="navbar-header"  href="/main_part"> BuzzQuick </a></h3>
   		 </div>
@@ -299,11 +302,8 @@ Contact : +91 7045248654</pre>
    <a href="/main_part">Home</a>
    <a href="/about_us">About</a>
    <a href="/Contact">Contact</a>
-   <a>{{> loginButtons align="left"}}</a>
- </div>
+   <!--<a>{{> loginButtons align="left"}}</a>-->
 
- <div id="main">
-   <button class="openbtn" onclick="openNav()" id="#myDiv">&#9776;</button>
  </div>
       <div class="collapse navbar-collapse nav1" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -317,11 +317,12 @@ Contact : +91 7045248654</pre>
           <li class="nav-item">
             <a class="nav-link" href="/Contact"><span style="font-size:12px">Contact</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link"><span style="font-size:12px">{{> loginButtons align="right"}}</span></a>
-          </li>
+
         </ul>
       </div>
+
+      <a class="nav-link sigin"><span style="font-size:12px">{{> loginButtons align="right"}}</span></a>
+
     </div>
   </nav>
   </div>
@@ -414,6 +415,7 @@ function openNav() {
   } else {
     x.style.display = "none";
   }
+
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
