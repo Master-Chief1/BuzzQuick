@@ -66,9 +66,6 @@
   .sidebar a {font-size: 18px;}
 }
 
-.nav-cus{
-    margin-bottom: 50px
-}
 /*  --  NavBar --*/
 .nav1{
   margin-bottom: 0px;
@@ -293,14 +290,16 @@
 }
 
 .add_btn{
-  margin:0 auto;
-  display:block;
+  display: inline;
+  margin-left: 0px;
+  margin-right: 20px;
   background-color: #eeeeee;
   color: black;
   border-radius: 3px;
   border: 3px #eeeeee solid;
   margin-bottom: 10px;
   transition-duration: 0.4s;
+
 }
 
 .add_pro button:hover{
