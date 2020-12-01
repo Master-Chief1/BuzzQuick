@@ -124,16 +124,18 @@ lastScrollTop = 0;
   'keypress #search_profile': function (evt, template) {
     if (evt.which === 13) {
       Session.set("catFilter", undefined);
+      Session.set("userFilter", undefined);
       var info = document.getElementById("search_profile").value;
-      Session.set("userFilter", info);
-      console.log(Session.get("userFilter"));
+      Session.set("nameFilter", info);
+      console.log(Session.get("nameFilter"));
     }
   },
   'click #search_button_profile': function(){
     Session.set("catFilter", undefined);
+    Session.set("userFilter", undefined);
     var info = document.getElementById("search_profile").value;
-    Session.set("userFilter", info);
-    console.log(Session.get("userFilter"));
+    Session.set("nameFilter", info);
+    console.log(Session.get("nameFilter"));
   }
 });
 
@@ -158,10 +160,13 @@ lastScrollTop = 0;
     profiles:function(){
       if(Session.get("userFilter")){
         console.log("In");
-        return Profiles.find({name: Session.get("userFilter")}, {sort: {createdOn: -1, rating: -1}});
+        return Profiles.find({createdBy: Session.get("userFilter")}, {sort: {createdOn: -1, rating: -1}});
       }
       if (Session.get("catFilter")) {
         return Profiles.find({category: Session.get("catFilter")}, {sort: {createdOn: -1, rating: -1}});
+      }
+      if (Session.get("nameFilter")){
+        return Profiles.find({name: Session.get("nameFilter")}, {sort: {createdOn: -1, rating: -1}});
       }
       else{
       return Profiles.find({}, {sort:{createdOn: -1, rating:-1}, limit:Session.get("profilesLimit")});
@@ -259,17 +264,21 @@ lastScrollTop = 0;
     },
 
     'click .js-set-image-filter':function(event){
-        Session.set("userFilter", this.createdBy);
+        Session.set("userFilter", Meteor.user()._id);
+        console.log(Session.get("userFilter"));
     },
     'click .js-unset-image-filter':function(event){
         Session.set("userFilter", undefined);
+        Session.set("nameFilter", undefined);
+        Session.set("catFilter", undefined);
     },
 
     'click .unset-filter':function () {
-      if(Session.get("userFilter") || Session.get("catFilter"))
+      if(Session.get("userFilter") || Session.get("catFilter") || Session.get("nameFilter"))
       {
         Session.set("userFilter", undefined);
         Session.set("catFilter", undefined);
+        Session.set("nameFilter", undefined);
       }
     }
    });
